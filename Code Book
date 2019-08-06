@@ -1,0 +1,32 @@
+This code book summarizes run_analysis.R.
+
+Dataset:
+The dataset is downloaded under the folder "UCI HAR Dataset". 
+
+Assigning Variables:
+features <- features.txt : 561 rows, 2 columns 
+activities <- activity_labels.txt : 6 rows, 2 columns 
+subject_test <- test/subject_test.txt : 2947 rows, 1 column 
+x_test <- test/X_test.txt : 2947 rows, 561 columns 
+y_test <- test/y_test.txt : 2947 rows, 1 columns 
+subject_train <- test/subject_train.txt : 7352 rows, 1 column 
+x_train <- test/X_train.txt : 7352 rows, 561 columns 
+y_train <- test/y_train.txt : 7352 rows, 1 columns 
+
+Merging Traning and Test Sets:
+x : created by merging x_train and x_test using rbind()
+y : created by merging y_train and y_test using rbind()
+subject : created by merging subject_train and subject_test using rbind()
+merged_data : created by merging subject, y and x using cbind()
+
+Extracting Measurements on Mean and SD for Each Measurement:
+tidy_data : created by subsetting Merged_Data, selecting subject, code, and the measurements on means and standard deviations
+
+New Variable Names:
+"Code" column replaced by "Activity"
+Acc column replaced by Accelerometer
+Gyro column replaced by Gyroscope
+BodyBody column replaced by Body
+Mag column replaced by Magnitude
+Columns starting with character f replaced by Frequency
+Columns starting with character t replaced by Time
